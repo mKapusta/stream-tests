@@ -26,10 +26,10 @@ public class StreamTests {
 
 
     @Test
-    public void foreach() {
+    public void joining() {
         String s = "";
         // Parcourir les types pour ajouter dans s le toString de chacun des éléments de la liste separes par des virgules
-        assertEquals(s, types.toString());
+        assertEquals('[' + s + ']', types.toString());
     }
 
     @Test
@@ -61,8 +61,8 @@ public class StreamTests {
         //Trier la liste des especes par ordre alphabétique de leur nom
         assertEquals(especes.get(1), especeList.get(0));
         assertEquals(especes.get(0), especeList.get(1));
-        assertEquals(especes.get(2), especeList.get(2));
-        assertEquals(especes.get(3), especeList.get(3));
+        assertEquals(especes.get(3), especeList.get(2));
+        assertEquals(especes.get(2), especeList.get(3));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class StreamTests {
     public void map() {
         List<Type> typesPrincipaux = null;
         //Convertir la liste des especes pour récupérer la liste des types principaux
-        assertEquals(4, types.size());
+        assertEquals(4, typesPrincipaux.size());
         assertEquals(types.get(0), typesPrincipaux.get(0));
         assertEquals(types.get(1), typesPrincipaux.get(1));
         assertEquals(types.get(2), typesPrincipaux.get(2));
@@ -95,8 +95,9 @@ public class StreamTests {
     public void map2() {
         List<Type> typesSecondaires = null;
         //Convertir la liste des especes pour récupérer la liste des types secondaires non null
+
         assertEquals(1, typesSecondaires.size());
-        assertEquals(types.get(4), typesSecondaires.size());
+        assertEquals(types.get(4), especes.get(1).getTypeSecondaire());
     }
 
     @Test
@@ -111,7 +112,7 @@ public class StreamTests {
     public void exception() {
         //Trouver l'espece rattatac dans la liste des Especes, Sinon lever une exceptin
         assertThrows(Exception.class, () -> {
-            throw new NullPointerException();
+            new NullPointerException();
         });
     }
 
@@ -119,7 +120,7 @@ public class StreamTests {
     public void reduce() {
         Integer sommeids = null;
         //Recuperer la somme de tous les ids de type
-        assertEquals(15, sommeids);
+        assertEquals(13, sommeids);
     }
 
 
@@ -132,7 +133,7 @@ public class StreamTests {
 
     @Test
     public void groupBy() {
-        Map<Type, Espece> map = null;
+        Map<Type, List<Espece>> map = null;
         //Regrouper les Especes par type principal dans une Map
         assertEquals(4, map.entrySet().size());
         assertTrue(map.keySet().contains(types.get(0)));
@@ -145,7 +146,7 @@ public class StreamTests {
     public void mix() {
         List<String> faiblesses = null;
         // Recuperer toutes les faiblesses de Bulbizarre, sans doublon et triées par ordre alphabétique
-        assertEquals(4, faiblesses.size());
+        assertEquals(3, faiblesses.size());
         assertEquals("FEU", faiblesses.get(0));
         assertEquals("PSY", faiblesses.get(1));
         assertEquals("VOL", faiblesses.get(2));

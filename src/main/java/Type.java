@@ -34,4 +34,12 @@ public class Type {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public List<String> getFaiblesses() {
+        return faiblesses;
+    }
+
+    public void setFaiblesses(List<String> faiblesses) {
+        this.faiblesses = faiblesses;
+    }
 }
