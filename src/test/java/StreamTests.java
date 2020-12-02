@@ -37,6 +37,7 @@ public class StreamTests {
         List<List<String>> namesNested = List.of(List.of("Jeff", "Bezos"),
                 List.of("Bill", "Gates"),
                 List.of("Mark", "Zuckerberg"));
+        //Applatir la liste des noms-prenoms 
         List<String> flatNames = null;
         assertEquals(6, flatNames.size());
         assertEquals(List.of("Jeff", "Bezos", "Bill", "Gates", "Mark", "Zuckerberg"), flatNames);
