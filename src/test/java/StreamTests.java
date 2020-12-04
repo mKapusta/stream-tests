@@ -57,7 +57,7 @@ public class StreamTests {
     }
 
     @Test
-    public void sort() {
+    public void sorted() {
         List<Espece> especeList = null;
         //Trier la liste des especes par ordre alphabétique de leur nom
         assertEquals(especes.get(1), especeList.get(0));
